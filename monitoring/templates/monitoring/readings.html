@@ -1,0 +1,13 @@
+{% extends 'monitoring/base.html' %}
+
+{% block content %}
+    <div class="starter-template">
+        <h1> Current Readings {{sensor_name }} {{sensor_location }}</a></h1>
+    </div>
+    <ul>
+    	{% for reading in sensor_readings %}
+    		<li><font size = '5'> {{ reading.type }} {{' = ' }} {{ reading.data }} {{ ' @ ' }} {{ reading.date }} </font></li>
+    	{% endfor %}
+    </ul>
+
+{% endblock %}

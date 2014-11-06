@@ -1,0 +1,16 @@
+{% extends 'monitoring/base.html' %}
+
+{% block content %}
+
+      <div class="starter-template">
+        <h1> Sensors</h1>
+        <p class="lead">Here is a list of available sensors.<br>
+      </div>
+
+      <ul>
+       	{% for id, sensor, location in sensor_location_list %}
+       		<li><font size='5'><a href="/monitoring/readings/{{id}}/"> {{ sensor }} {{' @ ' }} {{ location }} </font></a></li>
+       	{% endfor %}
+      </ul>
+
+{% endblock %}
