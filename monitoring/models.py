@@ -16,7 +16,6 @@ class Location(models.Model):
 
 class Account(models.Model):
     user = models.OneToOneField(User)
-    location = models.ForeignKey(Location, null=True)
     phone = models.CharField(max_length=10, null=True)
     def __str__(self):
 		return self.first_name + ' ' + self.last_name
