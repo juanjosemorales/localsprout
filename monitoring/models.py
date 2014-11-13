@@ -15,15 +15,7 @@ class Location(models.Model):
 		return self.description
 
 class Account(models.Model):
-	name = models.CharField(max_length=75)
-	start_date = models.DateTimeField('datetime started')
-	end_date = models.DateTimeField('datetime terminated', null=True)
-	def __str__(self):
-		return self.name
-
-class Contact(models.Model):
     user = models.OneToOneField(User)
-    account = models.ForeignKey(Account)
     location = models.ForeignKey(Location, null=True)
     phone = models.CharField(max_length=10, null=True)
     def __str__(self):

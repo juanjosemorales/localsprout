@@ -16,20 +16,7 @@ class Migration(migrations.Migration):
             name='Account',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=75)),
-                ('start_date', models.DateTimeField(verbose_name=b'datetime started')),
-                ('end_date', models.DateTimeField(null=True, verbose_name=b'datetime terminated')),
-            ],
-            options={
-            },
-            bases=(models.Model,),
-        ),
-        migrations.CreateModel(
-            name='Contact',
-            fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('phone', models.CharField(max_length=10, null=True)),
-                ('account', models.ForeignKey(to='monitoring.Account')),
             ],
             options={
             },
@@ -83,13 +70,13 @@ class Migration(migrations.Migration):
             preserve_default=True,
         ),
         migrations.AddField(
-            model_name='contact',
+            model_name='account',
             name='location',
             field=models.ForeignKey(to='monitoring.Location', null=True),
             preserve_default=True,
         ),
         migrations.AddField(
-            model_name='contact',
+            model_name='account',
             name='user',
             field=models.OneToOneField(to=settings.AUTH_USER_MODEL),
             preserve_default=True,
