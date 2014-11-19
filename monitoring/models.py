@@ -14,15 +14,9 @@ class Location(models.Model):
 			return self.country + ' ' + self.state + ' ' + self.street_address
 		return self.description
 
-class Account(models.Model):
-    user = models.OneToOneField(User)
-    phone = models.CharField(max_length=10, null=True)
-    def __str__(self):
-		return self.first_name + ' ' + self.last_name
-
 class SensorGroup(models.Model):
 	location = models.ForeignKey(Location)
-	account = models.ForeignKey(Account)
+	user = models.ForeignKey(User)
 	name = models.CharField(max_length=50)
 	description = models.CharField(max_length=250, null=True)
 	is_active = models.BooleanField(default=True)
@@ -35,5 +29,5 @@ class Reading(models.Model):
 	data = models.CharField(max_length=200)
 	date = models.DateTimeField('datetime received')
 	def __str__(self):
-		return self.type + '  '+ self.data
+		return self.type + '  '+ self.data + ' ' + str(self.date)
 

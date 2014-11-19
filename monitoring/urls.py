@@ -7,4 +7,5 @@ urlpatterns = patterns('',
 	url(r'^readings/(?P<sensor_id>\d+?)/$', views.readings_view),
 	url(r'^register/$', views.register_user),
 	url(r'^register/success/$', views.register_success),
+	url(r'^get_readings$', views.get_readings),
 )
